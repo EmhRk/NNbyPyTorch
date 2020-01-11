@@ -105,7 +105,7 @@ for epoch in range(Epoch):
     loss.backward()
     optimizer.step()
     print("epoch %s: Loss %s" % (epoch+1, loss.item()))
-    if float(loss.item()) <= 0.5:
+    if float(loss.item()) <= 0.05:
         break
 
 model.eval()  # 测试模式
