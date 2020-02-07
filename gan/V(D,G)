@@ -1,0 +1,6 @@
+V = E[logD(x)]+E[log(1-D(G(z)))]
+  D: D(X)->1    D(G(z))->0  thus maximize V
+  G:            D(G(z))->1  thus minimize V
+So:
+D,G = arg min(G) max(D) V(D,G) := Loss_v
+consider: Loss_v <=> Loss_in_code

@@ -96,7 +96,7 @@ testLabels = torch.from_numpy(np.array(testLabels))
 model = LeNet_5()
 optimizer = optim.Adam(model.parameters())
 
-Epoch = 100
+Epoch = 200
 for epoch in range(Epoch):
     model.train()  # 训练模式
     optimizer.zero_grad()
@@ -104,7 +104,7 @@ for epoch in range(Epoch):
     loss = F.nll_loss(output, trainLabels.long())
     loss.backward()
     optimizer.step()
-    print("epoch %s: Loss %s" % (epoch+1, loss.item()))
+    print("epoch %s: Loss %s" % (epoch + 1, loss.item()))
     if float(loss.item()) <= 0.05:
         break
 
@@ -120,3 +120,7 @@ with torch.no_grad():
 test_loss /= testSize
 print("Test: Average loss:%s, Accuracy: %s/%s (%s)"
       % (test_loss, correct, testSize, correct / testSize))
+
+wait = input("save ?")
+
+torch.save(model.state_dict(), "D:\\WINTER\\PycharmProjects\\PyTorch\\LeNet-5\\model")
